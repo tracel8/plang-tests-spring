@@ -22,6 +22,8 @@ tests = test [
   "findMin [4, 5, 6]" ~: 4 ~=? (findMin [4, 5, 6]),
   "findMin [-1, 0, 1]" ~: -1 ~=? (findMin [-1, 0, 1]),
   "findMin [-20, -10, 0]" ~: -20 ~=? (findMin [-20, -10, 0]),
+  "findMin [3]" ~: 3 ~=? (findMin [3]),
+
 
   -- 5. tupleDotProduct
   "tupleDotProduct [1, 1, 1] [1, 2, 3]" ~: 6 ~=? (tupleDotProduct [1, 1, 1] [1, 2, 3]),
