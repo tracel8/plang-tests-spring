@@ -1,5 +1,6 @@
 # plang-tests-spring
-Put Tests for Programming Languages here
+
+Put Tests for Programming Languages here. Tests are separated by required problems and achivement problems.
 
 ## Installing HUnit
 
