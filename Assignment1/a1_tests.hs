@@ -20,6 +20,8 @@ tests = test [
   -- 4. findMin
   "findMin [2, 3, 1]" ~: 1 ~=? (findMin [2, 3, 1]),
   "findMin [4, 5, 6]" ~: 4 ~=? (findMin [4, 5, 6]),
+  "findMin [-1, 0, 1]" ~: -1 ~=? (findMin [-1, 0, 1]),
+  "findMin [-20, -10, 0]" ~: -20 ~=? (findMin [-20, -10, 0])
 
   -- 5. tupleDotProduct
   "tupleDotProduct [1, 1, 1] [1, 2, 3]" ~: 6 ~=? (tupleDotProduct [1, 1, 1] [1, 2, 3]),
@@ -29,5 +31,8 @@ tests = test [
   "revZip2Lists [1, 2, 3] ['a', 'b', 'c']" ~: [('c', 3), ('b', 2), ('a', 1)] ~=? (revZip2Lists [1, 2, 3] ['a', 'b', 'c']),
 
   -- 7. everyThird
-  "everyThird [1..30]" ~: [3,6,9,12,15,18,21,24,27,30] ~=? (everyThird [1..30])
-  ]
+  "everyThird [1..30]" ~: [3,6,9,12,15,18,21,24,27,30] ~=? (everyThird [1..30]),
+  "everyThird [1, 2, 3]" ~: [3] ~=? (everyThird [1, 2, 3]),
+  "everyThird [1, 2, 3, 4]" ~: [3] ~=? (everyThird [1, 2, 3, 4]),
+  "everyThird [1..10]" ~: [3, 6, 9] ~=? (everyThird [1..10])
+]
