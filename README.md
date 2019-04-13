@@ -14,7 +14,7 @@ In order to run the tests, first clone this repository onto your local machine. 
 Prelude> :l Assignment1/a1c.hs
 [1 of 1] Compiling A1c
 ...
-*A1c> :add plang-tests-spring/a1_tests.hs
+*A1c> :add plang-tests-spring/Assignment1/a1_tests.hs
 ```
 
 Make sure you use the `:add` command and not the `:l` command twice! If you use the `:l` command twice, the tests will not be able to import your code. 
