@@ -19,5 +19,5 @@ tests = test [
   "substitute 1.5 1 [1, 1.5, 2, 1.5, 1]" ~: [1, 1, 2, 1, 1] ~=? (substitute 1.5 1 [1, 1.5, 2, 1.5, 1]),
 
   -- 4. mergeSorted3
-  "mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]" ~: [1..9] ~=? (mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]),
+  "mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 5, 8]" ~: [1..9] ~=? (mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 5, 8]),
   "mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'p'] ['b', 'o', 'r']" ~: "abcdeiopr" ~=? (mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'p'] ['b', 'o', 'r'])]
