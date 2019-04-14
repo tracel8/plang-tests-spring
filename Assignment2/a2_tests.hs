@@ -20,4 +20,4 @@ tests = test [
 
   -- 4. mergeSorted3
   "mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]" ~: [1..9] ~=? (mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]),
-  "mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'p'] ['b', 'o', 'r']" ~: "abcdeijor" ~=? (mergeSorted3 ['a', 'c', 'e'] ['k', 'i', 'd'] ['b', 'r', 'o'])]
+  "mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'p'] ['b', 'o', 'r']" ~: "abcdeiopr" ~=? (mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'p'] ['b', 'o', 'r'])]
