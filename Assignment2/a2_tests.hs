@@ -1,6 +1,6 @@
 import Test.HUnit
 
-import A2c
+import A2b
 
 tests = test [
   -- 1. removeAllExcept
