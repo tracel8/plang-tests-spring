@@ -1,5 +1,6 @@
 import Test.HUnit
 
+import A2c
 
 tests = test [
   -- 1. removeAllExcept
@@ -20,6 +21,5 @@ tests = test [
   -- 4. mergeSorted3
 
   "mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]" ~: [1..9] ~=? (mergeSorted3 [2, 4, 6] [3, 7, 9] [1, 8, 5]),
-  "mergeSorted3 ['a', 'c', 'e'] ['k', 'i', 'd'] ['b', 'r', 'o']" ~: "abcdeijor" ~=? (mergeSorted3 ['a', 'c', 'e'] ['k', 'i', 'd'] ['b', 'r', 'o'])
-]
-
+  "mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'k'] ['b', 'o', 'r']" ~: "abcdeikor" ~=? (mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'k'] ['b', 'o', 'r'])]
+  
