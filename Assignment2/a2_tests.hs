@@ -47,5 +47,10 @@ tests = test [
   "mergeSorted3 [1.5, 2.5, 3.5] [2, 7.5, 8.5], [3, 9.5, 11.5]" ~: [1.5, 2, 2.5, 3, 3.5, 7.5, 8.5, 9.5, 11.5] ~=? (mergeSorted3 [1.5, 2.5, 3.5] [2, 7.5, 8.5] [3, 9.5, 11.5]),
   "mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'k'] ['b', 'o', 'r']" ~: "abcdeikor" ~=? (mergeSorted3 ['a', 'c', 'e'] ['d', 'i', 'k'] ['b', 'o', 'r']),
 
+  -- nodeValue
+  "nodeValue alpha" ~: 'a' ~=? (nodeValue alpha),
+
+  "inTree 'a' alpha" ~: True ~=? (inTree 'a' alpha),
+
   -- leaflist
   "leafList alpha" ~: "luxrqpvsy" ~=? (leafList alpha)]
