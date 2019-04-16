@@ -26,6 +26,24 @@ alpha =
             (TriNode 'y'
                 EmptyNode EmptyNode EmptyNode))
 
+beta :: TriTree Int
+beta = TriNode 1
+          (TriNode 2
+              EmptyNode EmptyNode EmptyNode)
+          (TriNode 4
+              EmptyNode EmptyNode EmptyNode)
+          (TriNode 3
+              EmptyNode EmptyNode EmptyNode)
+
+betaSquared :: TriTree Int
+betaSquared = TriNode 1
+                (TriNode 4
+                  EmptyNode EmptyNode EmptyNode)
+                (TriNode 16
+                  EmptyNode EmptyNode EmptyNode)
+                (TriNode 9
+                  EmptyNode EmptyNode EmptyNode)
+
 tests = test [
   -- 1. removeAllExcept
   "removeAllExcept 'a' ['a', 'b', 'c', 'a']" ~: ['a', 'a'] ~=? (removeAllExcept 'a' ['a', 'b', 'c', 'a']),
@@ -50,7 +68,29 @@ tests = test [
   -- nodeValue
   "nodeValue alpha" ~: 'a' ~=? (nodeValue alpha),
 
+  -- leftChild
+  "leftChild beta" ~: (TriNode 2 EmptyNode EmptyNode EmptyNode) ~=? (leftChild beta),
+  "leftChild (leftChild beta)" ~: EmptyNode ~=? (leftChild (leftChild beta)),
+
+  -- middleChild
+  "middleChild beta" ~: (TriNode 4 EmptyNode EmptyNode EmptyNode) ~=? (middleChild beta),
+
+  -- rightChild
+  "rightChild beta" ~: (TriNode 3 EmptyNode EmptyNode EmptyNode) ~=? (rightChild beta),
+
+  -- inTree 
   "inTree 'a' alpha" ~: True ~=? (inTree 'a' alpha),
+  "inTree 'z' alpha" ~: False ~=? (inTree 'z' alpha),
+  "inTree 1 beta" ~: True ~=? (inTree 1 beta),
+  "inTree 10 beta" ~: False ~=? (inTree 10 beta),
 
   -- leaflist
-  "leafList alpha" ~: "luxrqpvsy" ~=? (leafList alpha)]
+  "leafList alpha" ~: "luxrqpvsy" ~=? (leafList alpha),
+  "leafList beta" ~: [2, 4, 3] ~=? (leafList beta),
+
+  -- inOrderMap
+  "inOrderMap (x -> x * x) beta" ~: betaSquared ~=? (inOrderMap (\x -> x * x) beta),
+  
+  -- preOrderFold
+  "preOrderFold (+) 0 beta" ~: 10 ~=? (preOrderFold (+) 0 beta),
+  "preOrderFold (+) 1 beta" ~: 11 ~=? (preOrderFold (+) 1 beta)]
