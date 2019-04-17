@@ -1,6 +1,6 @@
 import Test.HUnit
 import A2b
-
+import Data.Char
 alpha:: TriTree Char
 alpha =
     TriNode 'a'
@@ -76,6 +76,7 @@ tests = test [
 
   -- nodeValue
   "nodeValue alpha" ~: 'a' ~=? (nodeValue alpha),
+  "nodeValue middleChild( leftChild alpha)" ~: 'u' ~=? (nodeValue (middleChild (leftChild alpha))),
 
   -- leftChild
   "leftChild beta" ~: (TriNode 2 EmptyNode EmptyNode EmptyNode) ~=? (leftChild beta),
@@ -99,8 +100,10 @@ tests = test [
 
   -- inOrderMap
   "inOrderMap (x -> x * x) beta" ~: betaSquared ~=? (inOrderMap (\x -> x * x) beta),
+  "inOrderMap ord alpha" ~: TriNode {element = 97, left = TriNode {element = 98, left = TriNode {element = 108, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 117, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 120, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}, middle = TriNode {element = 99, left = TriNode {element = 114, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 113, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 112, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}, right = TriNode {element = 107, left = TriNode {element = 118, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 115, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 121, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}} ~=? (inOrderMap ord alpha),
+
   
   -- preOrderFold
   "preOrderFold (+) 0 beta" ~: 10 ~=? (preOrderFold (+) 0 beta),
   "preOrderFold (+) 1 beta" ~: 11 ~=? (preOrderFold (+) 1 beta),
-  "preOrderFold mod 641 modTree" ~: 1 ~=? (preOrderFold mod 641 modTree)] 0 --This should make sure that the tree is visited in the correct order
+  "preOrderFold mod 641 modTree" ~: 1 ~=? (preOrderFold mod 641 modTree)] --This should make sure that the tree is visited in the correct order
