@@ -52,7 +52,14 @@ modTree = TriNode 152
                 EmptyNode EmptyNode EmptyNode)
             (TriNode 3
                 EmptyNode EmptyNode EmptyNode)
-
+biggerModTree :: TriTree Int
+biggerModTree = TriNode 467
+            (TriNode 123
+                EmptyNode EmptyNode EmptyNode)
+            (TriNode 29
+                EmptyNode EmptyNode EmptyNode)
+            (TriNode 13
+                EmptyNode EmptyNode EmptyNode)
 tests = test [
   -- 1. removeAllExcept
   "removeAllExcept 'a' ['a', 'b', 'c', 'a']" ~: ['a', 'a'] ~=? (removeAllExcept 'a' ['a', 'b', 'c', 'a']),
@@ -106,4 +113,5 @@ tests = test [
   -- preOrderFold
   "preOrderFold (+) 0 beta" ~: 10 ~=? (preOrderFold (+) 0 beta),
   "preOrderFold (+) 1 beta" ~: 11 ~=? (preOrderFold (+) 1 beta),
+  "preOrderFold mod 641 biggerModTree" ~: 9 ~=? (preOrderFold mod 641 biggerModTree),
   "preOrderFold mod 641 modTree" ~: 1 ~=? (preOrderFold mod 641 modTree)] --This should make sure that the tree is visited in the correct order
