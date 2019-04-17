@@ -52,6 +52,7 @@ modTree = TriNode 152
                 EmptyNode EmptyNode EmptyNode)
             (TriNode 3
                 EmptyNode EmptyNode EmptyNode)
+
 biggerModTree :: TriTree Int
 biggerModTree = TriNode 467
             (TriNode 123
@@ -60,6 +61,31 @@ biggerModTree = TriNode 467
                 EmptyNode EmptyNode EmptyNode)
             (TriNode 13
                 EmptyNode EmptyNode EmptyNode)
+
+alphaOrd :: TriTree Int
+alphaOrd = (TriNode 97
+                (TriNode 98
+                    (TriNode 108
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 117
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 120
+                        EmptyNode EmptyNode EmptyNode))
+                (TriNode 99
+                    (TriNode 114
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 113
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 112
+                        EmptyNode EmptyNode EmptyNode))
+                (TriNode 107
+                    (TriNode 118
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 115
+                        EmptyNode EmptyNode EmptyNode)
+                    (TriNode 121
+                        EmptyNode EmptyNode EmptyNode)))
+
 tests = test [
   -- 1. removeAllExcept
   "removeAllExcept 'a' ['a', 'b', 'c', 'a']" ~: ['a', 'a'] ~=? (removeAllExcept 'a' ['a', 'b', 'c', 'a']),
@@ -107,11 +133,11 @@ tests = test [
 
   -- inOrderMap
   "inOrderMap (x -> x * x) beta" ~: betaSquared ~=? (inOrderMap (\x -> x * x) beta),
-  "inOrderMap ord alpha" ~: TriNode {element = 97, left = TriNode {element = 98, left = TriNode {element = 108, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 117, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 120, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}, middle = TriNode {element = 99, left = TriNode {element = 114, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 113, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 112, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}, right = TriNode {element = 107, left = TriNode {element = 118, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, middle = TriNode {element = 115, left = EmptyNode, middle = EmptyNode, right = EmptyNode}, right = TriNode {element = 121, left = EmptyNode, middle = EmptyNode, right = EmptyNode}}} ~=? (inOrderMap ord alpha),
+  "inOrderMap ord alpha" ~: alphaOrd ~=? (inOrderMap ord alpha),
 
-  
   -- preOrderFold
   "preOrderFold (+) 0 beta" ~: 10 ~=? (preOrderFold (+) 0 beta),
   "preOrderFold (+) 1 beta" ~: 11 ~=? (preOrderFold (+) 1 beta),
   "preOrderFold mod 641 biggerModTree" ~: 9 ~=? (preOrderFold mod 641 biggerModTree),
-  "preOrderFold mod 641 modTree" ~: 1 ~=? (preOrderFold mod 641 modTree)] --This should make sure that the tree is visited in the correct order
+  -- This should make sure that the tree is visited in the correct order
+  "preOrderFold mod 641 modTree" ~: 1 ~=? (preOrderFold mod 641 modTree)] 
