@@ -1,6 +1,6 @@
 import Test.HUnit
 
-import A3d
+import A3b
 
 tests = test [
   -- 1. typeCheckPatterns
