@@ -1,6 +1,6 @@
 import Test.HUnit
 
-import A3d
+import A3b
 
 --Test convenience definitions
 c1 = ConstantPat(5)
